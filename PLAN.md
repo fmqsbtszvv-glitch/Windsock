@@ -49,8 +49,8 @@ conditions, compass ring.
 ## Settings
 - Style, sock colors, background (Auto / OLED black / pick a scene)
 - Units: mph, knots, km/h, m/s
-- Haptics on gusts (toggle) — note: iPhone web apps can't vibrate normally; we'll
-  use the iOS 18+ switch-control workaround for a light tap, so it's best-effort.
+- Haptics (toggle, iOS 18+ tick): gust taps, wind finder, compass clicks, thunder.
+  Web apps only get one kind of tap; full Taptic Engine control needs a native app.
 - Keep screen awake (Wake Lock API)
 - Settings remembered on the device
 
@@ -59,10 +59,11 @@ conditions, compass ring.
 - Installable web app (manifest, icon, offline shell)
 - Hosted on GitHub Pages (HTTPS is required for GPS and compass)
 
-## Build order
-1. Skeleton: permissions, GPS, compass, wind fetch, info panel
-2. 3D scene + sock physics in one style (cel-shaded)
-3. Other render styles + color presets
-4. Weather backgrounds + OLED black
-5. Settings, units, haptics, wake lock
-6. Home-screen install + GitHub Pages
+## Status
+- [x] Permissions, GPS, compass, live wind, info panel
+- [x] 3D scene + sock physics
+- [x] All six styles + color presets
+- [x] Weather backgrounds + OLED black + manual scenes
+- [x] Settings, units, haptics, wake lock
+- [x] Home-screen install files (manifest, icons, offline cache)
+- [ ] Turn on GitHub Pages and test on a real iPhone

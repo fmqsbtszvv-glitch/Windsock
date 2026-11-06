@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Windsock">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="A live 3D windsock driven by the wind where you are, turned to match the way your phone faces.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <title>Windsock</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="pre-start">
+  <canvas id="view" aria-label="Animated windsock"></canvas>
+
+  <section id="panel" class="panel" data-mode="full" aria-live="polite">
+    <div class="p-main">
+      <div class="readout">
+        <div class="speed"><span id="speed">--</span><span id="speed-unit" class="unit">mph</span></div>
+        <div id="dir-line" class="line">Waiting for wind…</div>
+        <div id="gust-line" class="line dim"></div>
+      </div>
+      <svg id="compass" viewBox="-52 -52 104 104" aria-hidden="true"></svg>
+    </div>
+    <div class="p-extra">
+      <div class="cell"><span class="k">Temp</span><span id="temp" class="v">--</span></div>
+      <div class="cell"><span class="k">Sky</span><span id="cond" class="v">--</span></div>
+      <div class="cell"><span class="k">Facing</span><span id="facing" class="v">--</span></div>
+      <div class="cell"><span class="k">Wind</span><span id="relative" class="v">--</span></div>
+    </div>
+    <div id="updated" class="foot">--</div>
+  </section>
+
+  <button id="settings-btn" class="fab" aria-label="Settings">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+  </button>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <div id="start" class="start">
+    <div class="start-card">
+      <h1>Windsock</h1>
+      <p>The live wind where you are, turned to match the way your phone faces.</p>
+      <button id="start-btn" class="primary">Start</button>
+      <p class="fine">Asks for your location and motion sensors.</p>
+    </div>
+  </div>
+
+  <div id="sheet" class="sheet" hidden>
+    <div class="sheet-backdrop" data-close></div>
+    <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+      <header>
+        <h2 id="sheet-title">Settings</h2>
+        <button class="done" data-close>Done</button>
+      </header>
+      <div id="sheet-body" class="sheet-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
